@@ -12,12 +12,12 @@ class User {
     required this.email,
   });
 
-  // factory User.fromJson(Map<String, dynamic> json) {
-  //   return User(
-  //     id: json['id'],
-  //     firstName: json['first_name'],
-  //     lastName: json['last_name'],
-  //     email: json['email'],
-  //   );
-  // }
+  factory User.fromJson(Map<String, dynamic> json) {
+    return User(
+      id: json['id'],
+      firstName: json['first_name'],
+      lastName: json['last_name'],
+      email: json['email'],
+    );
+  }
 }

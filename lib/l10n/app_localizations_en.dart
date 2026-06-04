@@ -9,20 +9,32 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
+  String get accountCreated => 'Account created!';
+
+  @override
   String get appTitle => 'SessionBloom';
 
   @override
-  String get signUpTitle => 'Balls!';
+  String get buttons_signUpButton => 'Sign Up';
 
   @override
-  String get firstNameLabel => 'First Name';
+  String get formLabel_emailLabel => 'Email';
+
+  @override
+  String get formLabel_firstNameLabel => 'First Name';
+
+  @override
+  String get formLabel_lastNameLabel => 'Last Name';
+
+  @override
+  String get formLabel_passwordLabel => 'Password';
+
+  @override
+  String get formLabel_repeatPasswordLabel => 'Repeat Password';
 
   @override
   String get required => 'Required';
 
   @override
-  String get accountCreated => 'Account created!';
-
-  @override
-  String get signUpButton => 'Sign Up';
+  String get signUpTitle => 'Sign Up!';
 }

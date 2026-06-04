@@ -1,8 +1,12 @@
 {
-  "appTitle": "SessionBloom",
-  "signUpTitle": "Registrati!",
-  "firstNameLabel": "Nome",
-  "required": "Obbligatorio",
   "accountCreated": "Account creato!",
-  "signUpButton": "Registrati"
+  "appTitle": "SessionBloom",
+  "buttons_signUpButton": "Registrati",
+  "formLabel_emailLabel": "Email",
+  "formLabel_firstNameLabel": "Nome",
+  "formLabel_lastNameLabel": "Cognome",
+  "formLabel_passwordLabel": "Password",
+  "formLabel_repeatPasswordLabel": "Ripeti Password",
+  "required": "Obbligatorio",
+  "signUpTitle": "Registrati!"
 }

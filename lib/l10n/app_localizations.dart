@@ -98,23 +98,53 @@ abstract class AppLocalizations {
     Locale('it'),
   ];
 
+  /// No description provided for @accountCreated.
+  ///
+  /// In en, this message translates to:
+  /// **'Account created!'**
+  String get accountCreated;
+
   /// No description provided for @appTitle.
   ///
   /// In en, this message translates to:
   /// **'SessionBloom'**
   String get appTitle;
 
-  /// No description provided for @signUpTitle.
+  /// No description provided for @buttons_signUpButton.
   ///
   /// In en, this message translates to:
-  /// **'Balls!'**
-  String get signUpTitle;
+  /// **'Sign Up'**
+  String get buttons_signUpButton;
 
-  /// No description provided for @firstNameLabel.
+  /// No description provided for @formLabel_emailLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Email'**
+  String get formLabel_emailLabel;
+
+  /// No description provided for @formLabel_firstNameLabel.
   ///
   /// In en, this message translates to:
   /// **'First Name'**
-  String get firstNameLabel;
+  String get formLabel_firstNameLabel;
+
+  /// No description provided for @formLabel_lastNameLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Last Name'**
+  String get formLabel_lastNameLabel;
+
+  /// No description provided for @formLabel_passwordLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Password'**
+  String get formLabel_passwordLabel;
+
+  /// No description provided for @formLabel_repeatPasswordLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Repeat Password'**
+  String get formLabel_repeatPasswordLabel;
 
   /// No description provided for @required.
   ///
@@ -122,17 +152,11 @@ abstract class AppLocalizations {
   /// **'Required'**
   String get required;
 
-  /// No description provided for @accountCreated.
+  /// No description provided for @signUpTitle.
   ///
   /// In en, this message translates to:
-  /// **'Account created!'**
-  String get accountCreated;
-
-  /// No description provided for @signUpButton.
-  ///
-  /// In en, this message translates to:
-  /// **'Sign Up'**
-  String get signUpButton;
+  /// **'Sign Up!'**
+  String get signUpTitle;
 }
 
 class _AppLocalizationsDelegate

@@ -9,20 +9,32 @@ class AppLocalizationsIt extends AppLocalizations {
   AppLocalizationsIt([String locale = 'it']) : super(locale);
 
   @override
+  String get accountCreated => 'Account creato!';
+
+  @override
   String get appTitle => 'SessionBloom';
 
   @override
-  String get signUpTitle => 'Registrati!';
+  String get buttons_signUpButton => 'Registrati';
 
   @override
-  String get firstNameLabel => 'Nome';
+  String get formLabel_emailLabel => 'Email';
+
+  @override
+  String get formLabel_firstNameLabel => 'Nome';
+
+  @override
+  String get formLabel_lastNameLabel => 'Cognome';
+
+  @override
+  String get formLabel_passwordLabel => 'Password';
+
+  @override
+  String get formLabel_repeatPasswordLabel => 'Ripeti Password';
 
   @override
   String get required => 'Obbligatorio';
 
   @override
-  String get accountCreated => 'Account creato!';
-
-  @override
-  String get signUpButton => 'Registrati';
+  String get signUpTitle => 'Registrati!';
 }

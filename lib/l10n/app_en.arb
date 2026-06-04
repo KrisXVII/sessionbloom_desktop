@@ -1,8 +1,12 @@
 {
-  "appTitle": "SessionBloom",
-  "signUpTitle": "Balls!",
-  "firstNameLabel": "First Name",
-  "required": "Required",
   "accountCreated": "Account created!",
-  "signUpButton": "Sign Up"
+  "appTitle": "SessionBloom",
+  "buttons_signUpButton": "Sign Up",
+  "formLabel_emailLabel": "Email",
+  "formLabel_firstNameLabel": "First Name",
+  "formLabel_lastNameLabel": "Last Name",
+  "formLabel_passwordLabel": "Password",
+  "formLabel_repeatPasswordLabel": "Repeat Password",
+  "required": "Required",
+  "signUpTitle": "Sign Up!"
 }
