@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:sessionbloom_desktop/utils/config.dart';
 import "app.dart";
+import 'package:flutter/rendering.dart';
 
 void main() async {
+  debugPaintSizeEnabled = true;
   WidgetsFlutterBinding.ensureInitialized();
 
   try {

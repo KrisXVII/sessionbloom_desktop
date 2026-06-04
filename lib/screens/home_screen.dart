@@ -21,7 +21,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Future<void> _checkConnection() async {
     final response = await ApiService.testConnection();
-    print(response);
+
     setState(() {
       _serverData = response;
     });
