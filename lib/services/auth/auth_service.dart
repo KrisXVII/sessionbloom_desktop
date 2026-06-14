@@ -3,6 +3,7 @@ import 'package:sessionbloom_desktop/services/api_client.dart';
 import 'package:sessionbloom_desktop/services/api_error.dart';
 
 class AuthService {
+
   Future<void> signUp({
     required String firstName,
     required String lastName,
@@ -20,7 +21,7 @@ class AuthService {
         });
     } on DioException catch (e) {
       if (e.response != null) {
-        throw throw ApiError(
+        throw ApiError(
           e.response?.data['message'] ?? 'Signup failed',
           details: e.response?.data['details'],
         );

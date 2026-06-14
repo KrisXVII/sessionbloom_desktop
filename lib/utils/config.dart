@@ -13,9 +13,4 @@ class AppConfig {
     isProduction = production;
     logsEnabled = enableLogging;
   }
-
-  // Helper getters
-  static String get authEndpoint => '$apiBaseUrl/auth/login';
-  static String get usersEndpoint => '$apiBaseUrl/users';
-  static String get sessionsEndpoint => '$apiBaseUrl/sessions';
 }

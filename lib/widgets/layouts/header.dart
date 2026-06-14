@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sessionbloom_desktop/services/api_service.dart';
+import 'package:sessionbloom_desktop/services/api_health_check.dart';
 
 class AppHeader extends StatefulWidget {
   final String title;
@@ -13,8 +13,7 @@ class AppHeader extends StatefulWidget {
 class _AppHeaderState extends State<AppHeader> {
   bool _isChecking = true;
   bool _isConnected = false;
-  String _message = 'Checking...';
-  int _statusCode = 0;
+  String _errorDetails = "";
 
   @override
   void initState() {
@@ -27,13 +26,12 @@ class _AppHeaderState extends State<AppHeader> {
       _isChecking = true;
     });
 
-    final result = await ApiService.testConnection();
+    final result = await ApiHealthCheck.testConnection();
 
     setState(() {
       _isChecking = false;
-      _statusCode = result['code'];
-      _isConnected = result['code'] == 200;
-      _message = result['body'];
+      _isConnected = result.ok;
+      _errorDetails = result.detail;
     });
   }
 
@@ -66,10 +64,10 @@ class _AppHeaderState extends State<AppHeader> {
             Padding(
               padding: const EdgeInsets.only(top: 4),
               child: Text(
-                _message,
+                _errorDetails,
                 style: const TextStyle(fontSize: 10, color: Colors.red),
                 maxLines: 1,
-                overflow: TextOverflow.ellipsis,
+                overflow: .ellipsis,
               ),
             ),
         ],

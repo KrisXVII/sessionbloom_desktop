@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '/widgets/home_body.dart';
-import '/services/api_service.dart';
+import '/services/api_health_check.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -20,10 +20,10 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Future<void> _checkConnection() async {
-    final response = await ApiService.testConnection();
+    final response = await ApiHealthCheck.testConnection();
 
     setState(() {
-      _serverData = response;
+      // _serverData = response;
     });
   }
 
