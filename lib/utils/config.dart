@@ -1,7 +1,7 @@
 
 class AppConfig {
   static String apiBaseUrl = '';
-  static bool enableLogging = true;
+  static bool logsEnabled = true;
   static bool isProduction = false;
 
   static void initialize({
@@ -11,7 +11,7 @@ class AppConfig {
   }) {
     apiBaseUrl = apiUrl;
     isProduction = production;
-    enableLogging = enableLogging;
+    logsEnabled = enableLogging;
   }
 
   // Helper getters
