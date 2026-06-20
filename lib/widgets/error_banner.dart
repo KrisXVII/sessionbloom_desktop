@@ -16,11 +16,11 @@ class ErrorBanner extends StatelessWidget {
       child: Padding(
         padding: const .all(20),
         child: Column(
-          crossAxisAlignment: .start,
+          crossAxisAlignment: .center,
           children: [
             Text(
               message,
-              style: const TextStyle(color: Colors.red),
+              style: const TextStyle(color: Colors.red, fontWeight: .bold),
             ),
             if (details != null) ..._buildDetails(),
           ],
@@ -36,7 +36,7 @@ class ErrorBanner extends StatelessWidget {
       final errors = entry.value as List<dynamic>;
       return errors.map((e) => Text(
         "$field: $e",
-        style: const TextStyle(color: Colors.red, fontWeight: .bold),
+        style: const TextStyle(color: Colors.red, fontWeight: .normal),
       ));
     }).toList();
   }
