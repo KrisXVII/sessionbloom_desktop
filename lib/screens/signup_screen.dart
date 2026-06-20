@@ -48,6 +48,23 @@ class _SignupScreenState extends State<SignupScreen> {
       return;
     }
 
+    final emailExp = RegExp(
+      r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$",
+    );
+
+    bool validateEmail(String? value) {
+      if (value == null || value.isEmpty) return false;
+      if (!emailExp.hasMatch(value.trim())) return false;
+      return true;
+    }
+
+    if (validateEmail(_emailController.text.trim())) {
+      setState(() {
+        _errorMessage = context.l10n.error_details_password_match;
+      });
+      return;
+    }
+
     if (!_formKey.currentState!.validate()) return;
 
     setState(() {
