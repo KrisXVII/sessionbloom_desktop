@@ -18,6 +18,14 @@ class AppLocalizationsIt extends AppLocalizations {
   String get buttons_signUpButton => 'Registrati';
 
   @override
+  String get error_details_password_match =>
+      'Password and Conferma password non coincidono.';
+
+  @override
+  String get error_message_password_match =>
+      'Controlla i campi Password e Ripeti password e riprova.';
+
+  @override
   String get formLabel_emailLabel => 'Email';
 
   @override

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sessionbloom_desktop/extensions/extensions.dart';
 import 'package:sessionbloom_desktop/services/auth/auth_service.dart';
 import 'package:sessionbloom_desktop/services/api_error.dart';
 import 'package:sessionbloom_desktop/widgets/auth/signup_form.dart';
@@ -36,6 +37,17 @@ class _SignupScreenState extends State<SignupScreen> {
   final _authService = AuthService();
 
   Future<void> _handleSignup() async {
+
+    if (_passwordController.text != _confirmPasswordController.text) {
+      setState(() {
+        _errorMessage = context.l10n.error_details_password_match;
+        _errorDetail = {
+          "password": [context.l10n.error_message_password_match]
+        };
+      });
+      return;
+    }
+
     if (!_formKey.currentState!.validate()) return;
 
     setState(() {
