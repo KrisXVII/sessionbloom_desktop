@@ -116,17 +116,23 @@ abstract class AppLocalizations {
   /// **'Sign Up'**
   String get buttons_signUpButton;
 
-  /// No description provided for @error_details_password_match.
+  /// No description provided for @error_message_email_format.
   ///
   /// In en, this message translates to:
-  /// **'Password and Confirm do not match.'**
-  String get error_details_password_match;
+  /// **'Enter a valid email.'**
+  String get error_message_email_format;
 
   /// No description provided for @error_message_password_match.
   ///
   /// In en, this message translates to:
-  /// **'Check password and confirm password fields and retry.'**
+  /// **'Password and Confirm do not match.'**
   String get error_message_password_match;
+
+  /// No description provided for @error_details_password_match.
+  ///
+  /// In en, this message translates to:
+  /// **'Check password and confirm password fields and retry.'**
+  String get error_details_password_match;
 
   /// No description provided for @formLabel_emailLabel.
   ///

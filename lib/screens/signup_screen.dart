@@ -58,9 +58,9 @@ class _SignupScreenState extends State<SignupScreen> {
       return true;
     }
 
-    if (validateEmail(_emailController.text.trim())) {
+    if (!validateEmail(_emailController.text.trim())) {
       setState(() {
-        _errorMessage = context.l10n.error_details_password_match;
+        _errorMessage = context.l10n.error_message_email_format;
       });
       return;
     }
