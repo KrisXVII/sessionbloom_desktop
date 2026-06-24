@@ -15,6 +15,9 @@ class AppLocalizationsIt extends AppLocalizations {
   String get appTitle => 'SessionBloom';
 
   @override
+  String get buttons_sendCode => 'Invia codice';
+
+  @override
   String get buttons_signUpButton => 'Registrati';
 
   @override
@@ -27,6 +30,9 @@ class AppLocalizationsIt extends AppLocalizations {
   @override
   String get error_details_password_match =>
       'Controlla i campi Password e Ripeti password e riprova.';
+
+  @override
+  String get formLabel_code => 'Codice a 6 cifre ricevuto via email';
 
   @override
   String get formLabel_emailLabel => 'Email';

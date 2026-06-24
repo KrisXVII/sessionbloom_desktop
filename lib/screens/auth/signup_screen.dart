@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sessionbloom_desktop/extensions/extensions.dart';
+import 'package:sessionbloom_desktop/screens/auth/code_screen.dart';
 import 'package:sessionbloom_desktop/services/auth/auth_service.dart';
 import 'package:sessionbloom_desktop/services/api_error.dart';
 import 'package:sessionbloom_desktop/widgets/auth/signup_form.dart';
@@ -84,7 +85,12 @@ class _SignupScreenState extends State<SignupScreen> {
       ScaffoldMessenger.of(context)
           .showSnackBar(const SnackBar(content: Text("Account created!")));
       Future.delayed(const Duration(seconds: 2), () {
-        if (mounted) Navigator.pop(context);
+        if (mounted) {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (_) => CodeScreen())
+        );
+        }
       });
     } on ApiError catch (e) {
       setState(() {

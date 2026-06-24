@@ -110,6 +110,12 @@ abstract class AppLocalizations {
   /// **'SessionBloom'**
   String get appTitle;
 
+  /// No description provided for @buttons_sendCode.
+  ///
+  /// In en, this message translates to:
+  /// **'Send code'**
+  String get buttons_sendCode;
+
   /// No description provided for @buttons_signUpButton.
   ///
   /// In en, this message translates to:
@@ -133,6 +139,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Check password and confirm password fields and retry.'**
   String get error_details_password_match;
+
+  /// No description provided for @formLabel_code.
+  ///
+  /// In en, this message translates to:
+  /// **'Insert 6 digits code received via email'**
+  String get formLabel_code;
 
   /// No description provided for @formLabel_emailLabel.
   ///

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sessionbloom_desktop/screens/signup_screen.dart';
+import 'package:sessionbloom_desktop/screens/auth/signup_screen.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:sessionbloom_desktop/l10n/app_localizations.dart';
 
