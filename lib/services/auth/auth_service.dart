@@ -3,14 +3,15 @@ import 'package:sessionbloom_desktop/services/api_client.dart';
 import 'package:sessionbloom_desktop/services/api_error.dart';
 
 class AuthService {
-  Future<void> signUp({
+
+  Future<String> signUp({
     required String firstName,
     required String lastName,
     required String email,
     required String password,
   }) async {
     try {
-      await ApiClient.dio.post(
+      final response = await ApiClient.dio.post(
         "/auth/sign_up",
         data: {
           'first_name': firstName,
@@ -19,11 +20,12 @@ class AuthService {
           'password': password,
         },
       );
+      return response.data.toString();
     } on DioException catch (e) {
       if (e.response != null) {
         throw ApiError(
           e.response?.data['message'] ?? 'Signup failed',
-          details: e.response?.data['details'],
+          details: e.response?.data['details'].toString(),
         );
       }
       if (e.type == DioExceptionType.connectionTimeout) {
