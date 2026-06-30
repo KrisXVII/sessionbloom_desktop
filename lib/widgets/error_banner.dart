@@ -2,13 +2,9 @@ import 'package:flutter/material.dart';
 
 class ErrorBanner extends StatelessWidget {
   final String message;
-  final Map<String, dynamic>? details;
+  final String? details;
 
-  const ErrorBanner({
-    super.key,
-    required this.message,
-    this.details
-  });
+  const ErrorBanner({super.key, required this.message, this.details});
 
   @override
   Widget build(BuildContext context) {
@@ -16,30 +12,29 @@ class ErrorBanner extends StatelessWidget {
       child: Padding(
         padding: const .all(20),
         child: Column(
-          crossAxisAlignment: .center,
+          mainAxisAlignment: .center,
           children: [
             Text(
               message,
+              textAlign: .center,
               style: const TextStyle(color: Colors.red, fontWeight: .bold),
             ),
-            if (details != null) ..._buildDetails(),
+            if (details != null) _buildDetails(),
           ],
         ),
       ),
     );
   }
 
-  List<Widget> _buildDetails() {
-
-    return details!.entries.expand((entry) {
-      final field = entry.key;
-      final errors = entry.value as List<dynamic>;
-      return errors.map((e) => Text(
-        "$field: $e",
-        style: const TextStyle(color: Colors.red, fontWeight: .normal),
-      ));
-    }).toList();
+  Widget _buildDetails() {
+    return Column(
+      mainAxisAlignment: .center,
+      children: [
+        Text(
+          details!,
+          style: const TextStyle(color: Colors.red, fontWeight: .normal),
+        ),
+      ],
+    );
   }
 }
-
-

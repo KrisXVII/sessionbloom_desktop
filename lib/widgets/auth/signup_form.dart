@@ -11,7 +11,7 @@ class SignupForm extends StatelessWidget {
   final TextEditingController confirmPasswordController;
   final bool isLoading;
   final String? errorMessage;
-  final Map<String, dynamic>? errorDetail;
+  final String? errorDetail;
   final VoidCallback onSubmit;
 
   const SignupForm({
@@ -46,7 +46,7 @@ class SignupForm extends StatelessWidget {
           if (errorMessage != null)
             ErrorBanner(
               message: errorMessage!,
-              details: errorDetail,
+              details: errorDetail.toString(),
             ),
             const SizedBox(height: 32),
 

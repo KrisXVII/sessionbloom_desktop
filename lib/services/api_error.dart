@@ -1,6 +1,6 @@
 
 class ApiError implements Exception {
   final String message;
-  final Map<String, dynamic>? details;
+  final String? details;
   const ApiError(this.message, {this.details});
 }

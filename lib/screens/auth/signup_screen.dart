@@ -23,7 +23,7 @@ class _SignupScreenState extends State<SignupScreen> {
 
   bool _isLoading = false;
   String? _errorMessage;
-  Map<String, dynamic>? _errorDetail;
+  String? _errorDetail;
 
   @override
   void dispose() {
@@ -42,9 +42,8 @@ class _SignupScreenState extends State<SignupScreen> {
     if (_passwordController.text != _confirmPasswordController.text) {
       setState(() {
         _errorMessage = context.l10n.error_details_password_match;
-        _errorDetail = {
-          "password": [context.l10n.error_message_password_match]
-        };
+        _errorDetail = context.l10n.error_message_password_match;
+        ;
       });
       return;
     }
@@ -95,7 +94,7 @@ class _SignupScreenState extends State<SignupScreen> {
     } on ApiError catch (e) {
       setState(() {
         _errorMessage = e.message;
-        _errorDetail = e.details;
+        _errorDetail = e.details.toString();
       });
     } finally {
       if (mounted) {
@@ -122,7 +121,7 @@ class _SignupScreenState extends State<SignupScreen> {
             confirmPasswordController: _confirmPasswordController,
             isLoading: _isLoading,
             errorMessage: _errorMessage,
-            errorDetail: _errorDetail,
+            errorDetail: _errorDetail.toString(),
             onSubmit: _handleSignup,
           ),
         ),
