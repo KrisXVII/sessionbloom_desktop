@@ -4,7 +4,7 @@
   "buttons_sendCode": "Invia codice",
   "buttons_signUpButton": "Registrati",
   "error_message_email_format": "Inserire una email valida.",
-  "error_message_password_match ": "Password and Conferma password non coincidono.",
+  "error_message_password_match ": "Password e Conferma password non coincidono.",
   "error_details_password_match": "Controlla i campi Password e Ripeti password e riprova.",
   "formLabel_code" : "Codice a 6 cifre ricevuto via email",
   "formLabel_emailLabel": "Email",
