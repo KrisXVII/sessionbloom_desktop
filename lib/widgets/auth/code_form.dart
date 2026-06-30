@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pinput/pinput.dart';
 import 'package:sessionbloom_desktop/extensions/extensions.dart';
 import 'package:sessionbloom_desktop/widgets/error_banner.dart';
 
@@ -7,6 +8,7 @@ class CodeForm extends StatelessWidget {
   final TextEditingController codeController;
   final String? errorMessage;
   final bool isLoading;
+  final String email;
   final VoidCallback onSubmit;
 
 
@@ -16,6 +18,7 @@ class CodeForm extends StatelessWidget {
     required this.codeController,
     required this.isLoading,
     required this.onSubmit,
+    required this.email,
     this.errorMessage
   });
 
@@ -33,15 +36,32 @@ class CodeForm extends StatelessWidget {
           const SizedBox(height: 32),
 
           Row(
+            mainAxisAlignment: .center,
+            children: [
+              Column(
+                crossAxisAlignment: .center,
+                children: [
+                  Text(
+                      "We sent an email to $email",
+                    style: TextStyle(fontSize: 26, fontWeight: .w300),
+                  )
+                ],
+              )
+            ],
+          ),
+          const SizedBox(height: 32),
+
+          Row(
             children: [
               Expanded(
-                child: TextFormField(
+                child: Pinput(
                   controller: codeController,
-                  decoration: InputDecoration(
-                    labelText: context.l10n.formLabel_code,
-                    border: const OutlineInputBorder(),
-                    // prefixIcon: const Icon(Icons.person_outline),
-                  ),
+                  length: 6,
+                  // decoration: InputDecoration(
+                  //   labelText: context.l10n.formLabel_code,
+                  //   border: const OutlineInputBorder(),
+                  //   // prefixIcon: const Icon(Icons.person_outline),
+                  // ),
                   validator: (value) =>
                   value == null || value.isEmpty ? context.l10n.required : null,
                 ),

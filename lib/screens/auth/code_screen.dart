@@ -5,7 +5,8 @@ import 'package:sessionbloom_desktop/widgets/layouts/layout.dart';
 import 'package:sessionbloom_desktop/widgets/auth/code_form.dart';
 
 class CodeScreen extends StatefulWidget {
-  const CodeScreen({super.key});
+  final String email;
+  const CodeScreen({super.key, required this.email});
 
   @override
   State<CodeScreen> createState() => _CodeScreenState();
@@ -31,6 +32,7 @@ class _CodeScreenState extends State<CodeScreen> {
     setState(() => _isLoading = true);
     try {
       final flowId = await _authService.getAuthFlow();
+      print(flowId);
       setState(() {
         _flowId = flowId;
       });
@@ -55,7 +57,7 @@ class _CodeScreenState extends State<CodeScreen> {
       );
       if (!mounted) return;
       ScaffoldMessenger.of(context)
-          .showSnackBar(const SnackBar(content: Text("Account created!")));
+          .showSnackBar(const SnackBar(content: Text("Code sent!")));
       Future.delayed(const Duration(seconds: 2), () {
         if (mounted) Navigator.pop(context);
       });
@@ -84,6 +86,7 @@ class _CodeScreenState extends State<CodeScreen> {
             codeController: _codeController,
             isLoading: _isLoading,
             errorMessage: _errorMessage,
+            email: widget.email,
             onSubmit: _handleCode,
           ),
         ),

@@ -39,7 +39,7 @@ class SignupForm extends StatelessWidget {
           const SizedBox(height: 16),
           Text(
             context.l10n.signUpTitle,
-            style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+            style: TextStyle(fontSize: 28, fontWeight: .bold),
           ),
           const SizedBox(height: 32),
 

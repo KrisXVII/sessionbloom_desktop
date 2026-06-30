@@ -87,7 +87,9 @@ class _SignupScreenState extends State<SignupScreen> {
         if (mounted) {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (_) => CodeScreen())
+            MaterialPageRoute(builder: (_) => CodeScreen(
+              email: _emailController.text.trim()
+            ))
         );
         }
       });
