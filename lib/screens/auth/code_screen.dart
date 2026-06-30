@@ -15,6 +15,7 @@ class _CodeScreenState extends State<CodeScreen> {
   final _formKey = GlobalKey<FormState>();
   final _codeController = TextEditingController();
 
+  String _flowId = "";
   bool _isLoading = false;
   String? _errorMessage;
 
@@ -29,7 +30,11 @@ class _CodeScreenState extends State<CodeScreen> {
   Future<void> _startAuthFlow() async {
     setState(() => _isLoading = true);
     try {
-      await _authService.getAuthFlow();
+      final flowId = await _authService.getAuthFlow();
+      setState(() {
+        _flowId = flowId;
+      });
+
     } on ApiError catch (e) {
       setState(() => _errorMessage = e.message);
     } finally {
@@ -44,8 +49,9 @@ class _CodeScreenState extends State<CodeScreen> {
       _errorMessage = null;
     });
     try {
-      await _authService.getAuthFlow( // Send code via post
-          // code: _codeController.text.trim(),
+      await _authService.verifyCode(
+          flowId: _flowId,
+          code: _codeController.text.trim()
       );
       if (!mounted) return;
       ScaffoldMessenger.of(context)
