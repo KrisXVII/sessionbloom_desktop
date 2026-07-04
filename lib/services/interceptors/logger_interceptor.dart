@@ -4,7 +4,7 @@ class LoggerInterceptor extends Interceptor {
   @override
   void onRequest(options, handler) {
     print("REQUEST → ${options.method} ${options.path}");
-    print("Headers → ${options.headers}");
+    // print("Headers → ${options.headers}");
     print("Body → ${options.data}");
     handler.next(options);
   }
@@ -17,8 +17,8 @@ class LoggerInterceptor extends Interceptor {
   }
 
   @override
-  void onError(DioException e, handler) {
-    print("ERROR → ${e.message}");
-    handler.next(e);
+  void onError(DioException err, handler) {
+    print("ERROR → ${err.message}");
+    handler.next(err);
   }
 }

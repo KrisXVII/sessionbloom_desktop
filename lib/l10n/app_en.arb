@@ -4,6 +4,7 @@
   "buttons_sendCode": "Send code",
   "buttons_signUpButton": "Sign Up",
   "error_message_email_format": "Enter a valid email.",
+  "error_message_generic_error": "Something went wrong.",
   "error_message_password_match": "Password and Confirm do not match.",
   "error_details_password_match": "Check password and confirm password fields and retry.",
   "formLabel_code" : "Insert 6 digits code received via email",

@@ -1,18 +1,18 @@
-import 'package:dio/dio.dart';
+import 'package:sessionbloom_desktop/services/safe_api_call.dart';
+import 'dio_client.dart';
 import 'api_client.dart';
+import 'api_error.dart';
 
 class ApiHealthCheck {
 
-  static Future<({bool ok, String detail})> testConnection() async {
+  final apiClient = ApiClient(DioClient().dio);
+
+  Future<({bool ok, String detail})> testConnection() async {
     try {
-      final response = await ApiClient.dio.get("/test");
-
+      final response = await safeApiCall(apiClient.get("/test"));
       return (ok: true, detail: "OK (${response.statusCode})");
-
-    } on DioException catch (e) {
-      return (ok: false, detail:e.toString());
-    } catch (e) {
-      return (ok: false, detail: "Unexpected: $e");
+    } on ApiError catch (e) {
+      return (ok: false, detail: e.message);
     }
   }
 }

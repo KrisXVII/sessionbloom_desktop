@@ -21,17 +21,19 @@ class _AppHeaderState extends State<AppHeader> {
     _checkConnection();
   }
 
+  final _connectionService = ApiHealthCheck();
+
   Future<void> _checkConnection() async {
     setState(() {
       _isChecking = true;
     });
 
-    final result = await ApiHealthCheck.testConnection();
+    final connection = await _connectionService.testConnection();
 
     setState(() {
       _isChecking = false;
-      _isConnected = result.ok;
-      _errorDetails = result.detail;
+      _isConnected = connection.ok;
+      _errorDetails = connection.detail;
     });
   }
 
