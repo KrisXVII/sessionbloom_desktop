@@ -128,6 +128,12 @@ abstract class AppLocalizations {
   /// **'Enter a valid email.'**
   String get error_message_email_format;
 
+  /// No description provided for @error_message_generic_error.
+  ///
+  /// In en, this message translates to:
+  /// **'Something went wrong.'**
+  String get error_message_generic_error;
+
   /// No description provided for @error_message_password_match.
   ///
   /// In en, this message translates to:

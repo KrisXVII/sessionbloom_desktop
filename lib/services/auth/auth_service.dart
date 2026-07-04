@@ -1,8 +1,9 @@
-import 'package:dio/dio.dart';
 import 'package:sessionbloom_desktop/services/api_client.dart';
-import 'package:sessionbloom_desktop/services/api_error.dart';
+import 'package:sessionbloom_desktop/services/dio_client.dart';
+import 'package:sessionbloom_desktop/services/safe_api_call.dart';
 
 class AuthService {
+  final apiClient = ApiClient(DioClient().dio);
 
   Future<String> signUp({
     required String firstName,
@@ -10,8 +11,8 @@ class AuthService {
     required String email,
     required String password,
   }) async {
-    try {
-      final response = await ApiClient.dio.post(
+    final response = await safeApiCall(
+      apiClient.post(
         "/auth/sign_up",
         data: {
           'first_name': firstName,
@@ -19,90 +20,36 @@ class AuthService {
           'email': email,
           'password': password,
         },
-      );
-      return response.data.toString();
-    } on DioException catch (e) {
-      if (e.response != null) {
-        throw ApiError(
-          e.response?.data['message'] ?? 'Signup failed',
-          details: e.response?.data['details'].toString(),
-        );
-      }
-      if (e.type == DioExceptionType.connectionTimeout) {
-        throw const ApiError('Connection timeout. Please try again.');
-      }
-      throw const ApiError('Cannot connect to server. Check your internet.');
-    }
+      ),
+    );
+
+    return response.data.toString();
   }
 
   Future<String> getAuthFlow() async {
-    try {
-      final response = await ApiClient.dio.get("/auth/auth_flow");
-      return response.data.toString();
-    } on DioException catch (e) {
-      if (e.response != null) {
-        throw ApiError(
-          e.response?.data['message'] ?? "Auth flow creation failed",
-          details: e.response?.data['details'],
-        );
-      }
-      if (e.type == DioExceptionType.connectionTimeout) {
-        throw const ApiError('Connection timeout. Please try again.');
-      }
-      throw const ApiError('Cannot connect to server. Check your internet.');
-    }
+    final response = await safeApiCall(apiClient.get("/auth/auth_flow"));
+    return response.data.toString();
   }
 
-  Future<void> sendCode({
-    required String flowId,
-    required String email
-  }) async {
-    try {
-      await ApiClient.dio.post(
+  Future<void> sendCode({required String flowId, required String email}) async {
+    await safeApiCall(
+      apiClient.post(
         "/auth/send_verification_code",
-        data: {
-          "flow_id": flowId,
-          "email": email
-        }
-      );
-    } on DioException catch (e) {
-      if (e.response != null) {
-        throw ApiError(
-          e.response?.data['message'] ?? 'Signup failed',
-          details: e.response?.data['details'],
-        );
-      }
-      if (e.type == DioExceptionType.connectionTimeout) {
-        throw const ApiError('Connection timeout. Please try again.');
-      }
-      throw const ApiError('Cannot connect to server. Check your internet.');
-    }
+        data: {"flow_id": flowId, "email": email},
+      ),
+    );
   }
 
   Future<void> verifyCode({
+    // TODO: return output to send feedback message
     required String flowId,
-    required String code
+    required String code,
   }) async {
-    try {
-      await ApiClient.dio.post(
+    await safeApiCall(
+      apiClient.post(
         "/auth/validate_verification_code",
-        data: {
-          "flow_id": flowId,
-          "code": code
-        }
-      );
-    } on DioException catch (e) {
-      if (e.response != null) {
-        throw ApiError(
-          e.response?.data['message'] ?? 'Signup failed',
-          details: e.response?.data['details'],
-        );
-      }
-      if (e.type == DioExceptionType.connectionTimeout) {
-        throw const ApiError('Connection timeout. Please try again.');
-      }
-      throw const ApiError('Cannot connect to server. Check your internet.');
-    }
+        data: {"flow_id": flowId, "code": code},
+      ),
+    );
   }
-
 }

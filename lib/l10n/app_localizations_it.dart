@@ -24,6 +24,9 @@ class AppLocalizationsIt extends AppLocalizations {
   String get error_message_email_format => 'Inserire una email valida.';
 
   @override
+  String get error_message_generic_error => 'Qualcosa è andato storto.';
+
+  @override
   String get error_message_password_match =>
       'Password and Confirm do not match.';
 
