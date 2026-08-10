@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sessionbloom_desktop/extensions/extensions.dart';
+import 'package:sessionbloom_desktop/widgets/auth/password_field.dart';
 import 'package:sessionbloom_desktop/widgets/error_banner.dart';
 
 class SignupForm extends StatelessWidget {
@@ -107,13 +108,9 @@ class SignupForm extends StatelessWidget {
           Row(
             children: [
               Expanded(
-                child: TextFormField(
+                child: PasswordField(
                   controller: passwordController,
-                  decoration: InputDecoration(
-                    labelText: context.l10n.formLabel_passwordLabel,
-                    border: const OutlineInputBorder(),
-                    prefixIcon: const Icon(Icons.key),
-                  ),
+                  labelText: context.l10n.formLabel_passwordLabel,
                   validator: (value) =>
                   value == null || value.isEmpty ? context.l10n.required : null,
                 ),
@@ -125,13 +122,9 @@ class SignupForm extends StatelessWidget {
           Row(
             children: [
               Expanded(
-                child: TextFormField(
+                child: PasswordField(
                   controller: confirmPasswordController,
-                  decoration: InputDecoration(
-                    labelText: context.l10n.formLabel_repeatPasswordLabel,
-                    border: const OutlineInputBorder(),
-                    // prefixIcon: const Icon(Icons.cloud_lock),
-                  ),
+                  labelText: context.l10n.formLabel_repeatPasswordLabel,
                   validator: (value) =>
                   value == null || value.isEmpty ? context.l10n.required : null,
                 ),

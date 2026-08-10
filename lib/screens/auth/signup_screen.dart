@@ -43,7 +43,6 @@ class _SignupScreenState extends State<SignupScreen> {
       setState(() {
         _errorMessage = context.l10n.error_details_password_match;
         _errorDetail = context.l10n.error_message_password_match;
-        ;
       });
       return;
     }
